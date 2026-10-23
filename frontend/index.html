@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Absensi Kelas | SEVIMA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1>Absensi<span>Kelas</span></h1>
+    <p>Sistem Manajemen Kehadiran</p>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">DASHBOARD</p>
+      <h2>Selamat Datang!</h2>
+      <p>Kelola kelas, siswa, dan kehadiran dalam satu tempat.</p>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total Kelas</p>
+        <h3 id="totalKelas">0</h3>
+      </article>
+      <article class="stat-card">
+        <p>Total Siswa</p>
+        <h3 id="totalSiswa">0</h3>
+      </article>
+      <article class="stat-card">
+        <p>Total Pertemuan</p>
+        <h3 id="totalPertemuan">0</h3>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Daftar Kelas</h2>
+          <p>Kelola kelas dan mata pelajaran.</p>
+        </div>
+        <button id="btnTambahKelas">+ Tambah Kelas</button>
+      </div>
+
+      <div id="daftarKelas" class="empty-state">
+        <p>Belum ada kelas.</p>
+        <p>Tambahkan kelas untuk mulai mengelola absensi.</p>
+      </div>
+    </section>
+
+
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>Data Mahasiswa</h2>
+      <p>Kelola data mahasiswa yang mengikuti perkuliahan.</p>
+    </div>
+
+    <button id="btnTambahMahasiswa" class="primary-button">
+      + Tambah Mahasiswa
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>NIM</th>
+          <th>Nama Mahasiswa</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="daftarMahasiswa">
+        <tr>
+          <td colspan="4">Belum ada data mahasiswa.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>Pendaftaran Kelas</h2>
+      <p>Hubungkan mahasiswa dengan kelas yang diikuti.</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="pilihMahasiswa">Mahasiswa</label>
+    <select id="pilihMahasiswa">
+      <option value="">Pilih mahasiswa</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="pilihKelas">Kelas</label>
+    <select id="pilihKelas">
+      <option value="">Pilih kelas</option>
+    </select>
+  </div>
+
+  <button id="btnDaftarkan" class="primary-button">
+    Daftarkan Mahasiswa
+  </button>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Mahasiswa</th>
+          <th>Kelas</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="daftarPendaftaran">
+        <tr>
+          <td colspan="4">Belum ada pendaftaran.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>Pertemuan Kelas</h2>
+      <p>Kelola jadwal pertemuan untuk setiap kelas.</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="kelasPertemuan">Pilih Kelas</label>
+    <select id="kelasPertemuan">
+      <option value="">Pilih kelas</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="tanggalPertemuan">Tanggal Pertemuan</label>
+    <input type="date" id="tanggalPertemuan">
+  </div>
+
+  <button id="btnTambahPertemuan" class="primary-button">
+    + Tambah Pertemuan
+  </button>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>No. Pertemuan</th>
+          <th>Kelas</th>
+          <th>Tanggal</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="daftarPertemuan">
+        <tr>
+          <td colspan="4">Belum ada pertemuan.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>Input Absensi</h2>
+      <p>Catat kehadiran mahasiswa pada setiap pertemuan.</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="kelasAbsensi">Pilih Kelas</label>
+    <select id="kelasAbsensi">
+      <option value="">Pilih kelas</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="pertemuanAbsensi">Pilih Pertemuan</label>
+    <select id="pertemuanAbsensi">
+      <option value="">Pilih pertemuan</option>
+    </select>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>NIM</th>
+          <th>Nama Mahasiswa</th>
+          <th>Status Kehadiran</th>
+        </tr>
+      </thead>
+      <tbody id="daftarAbsensi">
+        <tr>
+          <td colspan="4">Pilih kelas dan pertemuan terlebih dahulu.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button id="btnSimpanAbsensi" class="primary-button">
+    Simpan Absensi
+  </button>
+</section>
+
+
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>Rekap Absensi</h2>
+      <p>Ringkasan kehadiran mahasiswa berdasarkan kelas.</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="kelasRekap">Pilih Kelas</label>
+    <select id="kelasRekap">
+      <option value="">Pilih kelas</option>
+    </select>
+  </div>
+
+  <div id="ringkasanAbsensi" class="stats-grid"></div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>NIM</th>
+          <th>Nama Mahasiswa</th>
+          <th>Hadir</th>
+          <th>Izin</th>
+          <th>Sakit</th>
+          <th>Alpa</th>
+          <th>Kehadiran</th>
+        </tr>
+      </thead>
+      <tbody id="daftarRekap">
+        <tr>
+          <td colspan="8">Pilih kelas untuk melihat rekap.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
