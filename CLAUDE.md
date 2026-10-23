@@ -1,55 +1,72 @@
-## Project Overview
+# Project: Absensi Sevima
 
-Absensi-Sevima is a web-based student attendance management application. It helps manage classes, students, class enrollments, meetings, attendance records, and attendance summaries.
+## Deskripsi singkat
 
-## Technology Stack
+Absensi Sevima adalah aplikasi berbasis web untuk membantu pengelolaan data kelas, mahasiswa, pendaftaran mahasiswa ke kelas, pertemuan perkuliahan, pencatatan kehadiran, dan rekapitulasi absensi.
 
-- Frontend: HTML, CSS, JavaScript
-- Backend: Node.js and Express
-- Database: PostgreSQL
+Aplikasi ini dibuat agar proses pengelolaan absensi menjadi lebih terstruktur dan mudah dilakukan.
 
-## Main Features
+## Teknologi yang dipakai dan cara menjalankan
 
-1. Class management (CRUD).
-2. Student management (CRUD).
-3. Student enrollment in classes.
-4. Meeting management by class and date.
-5. Attendance input for all enrolled students in a meeting.
-6. Attendance status options: Hadir, Izin, Sakit, and Alpa.
-7. Attendance summaries by class and student.
+### Teknologi
+- HTML untuk struktur halaman web.
+- CSS untuk tampilan dan desain antarmuka.
+- JavaScript untuk interaksi pada frontend.
+- Node.js sebagai runtime backend.
+- Express.js untuk membuat REST API.
+- PostgreSQL sebagai database.
+- pg untuk menghubungkan backend dengan PostgreSQL.
+- dotenv untuk membaca konfigurasi dari file .env.
+- cors untuk mendukung komunikasi frontend dan backend.
 
-## Development Guidelines
+### Struktur folder
+- backend/: server, koneksi database, dan endpoint API.
+- backend/routes/: endpoint untuk kelas, mahasiswa, pendaftaran, pertemuan, dan absensi.
+- frontend/: file index.html, style.css, dan script.js.
 
-- Keep the user interface text in Bahasa Indonesia.
-- Use clear and consistent naming for variables and functions.
-- Write code that is readable and easy to maintain.
-- Validate user input before saving data.
-- Prevent duplicate student enrollment in the same class.
-- Ensure attendance records are associated with the correct student, class, and meeting.
-- Keep data from different classes separate.
-- Do not remove existing features without a clear reason.
-- Avoid unnecessary changes to working code.
-- Handle errors and display understandable messages to users.
+### Cara menjalankan
+1. Pastikan PostgreSQL berjalan dan database sudah dibuat.
+2. Periksa konfigurasi koneksi database di file backend/.env.
+3. Buka terminal pada folder backend.
+4. Jalankan npm install jika dependensi belum terpasang.
+5. Jalankan npm start untuk menjalankan backend.
+6. Buka frontend/index.html melalui browser atau server frontend lokal.
+7. Pastikan backend dan koneksi database berjalan sebelum menguji fitur aplikasi.
 
-## Database Guidelines
+Backend berjalan pada http://localhost:3000.
 
-- Use PostgreSQL for persistent data storage.
-- Use appropriate primary keys and foreign keys.
-- Maintain relationships between classes, students, enrollments, meetings, and attendance records.
-- Use parameterized SQL queries to prevent SQL injection.
-- Store database credentials in environment variables, not directly in source code.
+## Aturan bisnis penting
 
-## Testing Guidelines
+- Data kelas menyimpan mata pelajaran, nama kelas, dan pengajar.
+- Setiap mahasiswa memiliki NIM yang unik.
+- Pendaftaran menghubungkan mahasiswa dengan kelas.
+- Pertemuan terhubung dengan kelas dan memiliki nomor pertemuan serta tanggal.
+- Data absensi menghubungkan mahasiswa dengan pertemuan.
+- Status kehadiran yang valid adalah Hadir, Izin, Sakit, dan Alpa.
+- Pencatatan absensi untuk mahasiswa dan pertemuan yang sama memperbarui status yang sudah ada, bukan membuat data duplikat.
+- Rekap absensi dihitung berdasarkan data kehadiran yang tersimpan.
+- Penghapusan atau perubahan data harus mempertimbangkan hubungan antartabel.
 
-- Test create, read, update, and delete operations.
-- Test student enrollment and duplicate enrollment prevention.
-- Test attendance input for each meeting.
-- Verify that attendance summaries match saved records.
-- Test that students and attendance records from different classes do not get mixed up.
+## Aturan penulisan kode
 
-## AI Assistance Guidelines
+- Gunakan JavaScript yang konsisten dan mudah dibaca.
+- Gunakan async/await untuk operasi API dan database yang bersifat asynchronous.
+- Pisahkan logika backend, route API, dan tampilan frontend.
+- Gunakan endpoint API yang sudah tersedia sebelum membuat endpoint baru.
+- Validasi input sebelum menyimpan data.
+- Tangani error API dan database dengan baik.
+- Pertahankan nama ID elemen HTML yang digunakan oleh script.js.
+- Gunakan parameter query SQL untuk menghindari SQL injection.
+- Jangan menaruh kredensial database langsung di dalam kode.
+- Pastikan perubahan kode tidak merusak fitur yang sudah berjalan.
 
-- Explain significant code changes before or after implementing them.
-- Prefer small, incremental changes over rewriting the entire application.
-- Do not claim a feature is complete unless it has been implemented and tested.
-- Keep project documentation updated when the architecture or features change.
+## Hal yang tidak boleh dilakukan AI
+
+- Jangan menghapus fitur yang sudah ada tanpa persetujuan.
+- Jangan mengubah struktur database atau menghapus data tanpa persetujuan.
+- Jangan mengubah nama endpoint, kolom database, atau ID HTML secara sembarangan.
+- Jangan mengganti teknologi utama project tanpa alasan dan persetujuan.
+- Jangan menampilkan isi file .env atau membagikan kredensial database.
+- Jangan membuat data contoh seolah-olah merupakan data asli.
+- Jangan menulis ulang seluruh file jika perubahan kecil sudah cukup, kecuali diminta.
+- Jelaskan perubahan penting dan cara mengujinya setelah memberikan kode.

@@ -1,30 +1,31 @@
-# AI Notes — Absensi-Sevima
+# AI Notes — Absensi Sevima
 
-## Purpose
+## Bagian yang saya kerjakan bersama AI
 
-This document records AI assistance used during the development of the Absensi-Sevima application.
+Saya menggunakan AI sebagai pendamping dalam proses pengembangan aplikasi Absensi Sevima. AI membantu menjelaskan struktur project, menghubungkan frontend dengan backend melalui API, menyusun logika JavaScript, serta membantu memahami proses pengambilan dan penyimpanan data ke PostgreSQL.
 
-## AI Assistance Log
+AI juga membantu mengevaluasi kode dan menemukan kemungkinan kesalahan ketika fitur aplikasi belum berjalan sesuai harapan.
 
-### 1. Frontend Development
+Saya tetap perlu memeriksa kode yang dihasilkan, menjalankan aplikasi, dan memastikan fitur bekerja sesuai kebutuhan project.
 
-- **Area:** HTML, CSS, and JavaScript.
-- **Assistance:** Guidance for implementing class management, student management, class enrollment, meeting management, attendance input, and attendance summaries.
-- **Developer responsibility:** Review the generated suggestions, integrate the code, and test the functionality.
+## Satu contoh saran AI yang saya tolak atau perbaiki, dan alasannya
 
-### 2. Debugging
+Saya memperbaiki cara AI menampilkan data pada tabel frontend. Pada implementasi sebelumnya, elemen tabel berpotensi menampilkan header berulang karena bagian render JavaScript membuat ulang struktur tabel yang sebenarnya sudah tersedia di HTML.
 
-- **Area:** Frontend functionality.
-- **Assistance:** Help identifying and troubleshooting issues involving dropdown options, attendance records, and attendance summary updates.
-- **Developer responsibility:** Apply changes and verify the results in the browser.
+Saya memilih untuk memperbaikinya dengan memisahkan tanggung jawab HTML dan JavaScript. HTML digunakan untuk menyediakan struktur tabel dan header, sedangkan JavaScript hanya mengisi baris data pada elemen tbody.
 
-### 3. Backend and Database
+Alasannya adalah agar tampilan tabel tetap konsisten, tidak terjadi pengulangan header, dan kode lebih mudah dipelihara.
 
-- **Status:** Planned.
-- **Assistance:** To be documented when AI is used to implement or troubleshoot the Node.js, Express, and PostgreSQL integration.
+## Bagian yang saya kerjakan tanpa AI, dan alasannya
 
-## Notes
+Saya melakukan pengujian aplikasi secara langsung melalui browser dan memeriksa apakah fitur yang dibuat berjalan sesuai kebutuhan. Saya juga mengamati hasil perubahan kode, mencoba melakukan refresh halaman, serta memeriksa apakah data yang telah disimpan tetap tersedia.
 
-- Record significant AI-assisted changes during development.
-- Verify suggestions before integrating them into the project.
-- Keep this document consistent with the actual work completed.
+Bagian ini saya lakukan sendiri agar dapat memahami perilaku aplikasi, membuktikan hasil implementasi, dan tidak hanya bergantung pada jawaban AI.
+
+## Kalau mengulang dari awal, apa yang akan saya ubah
+
+Jika mengulang project dari awal, saya akan menyusun kebutuhan fitur dan struktur database terlebih dahulu sebelum mulai menulis kode.
+
+Saya juga akan membuat dokumentasi endpoint API, menentukan aturan validasi data, dan menguji setiap fitur secara bertahap setelah selesai dibuat.
+
+Selain itu, saya akan menggunakan Git untuk mencatat perubahan kode sehingga lebih mudah membandingkan versi, memperbaiki kesalahan, dan mengembalikan kode ke versi sebelumnya jika diperlukan.
